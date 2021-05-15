@@ -1,0 +1,32 @@
+
+body{
+    margin: 0;
+    height: 100%;
+    text-align: center;
+}
+
+.container-fluid{
+    text-align: center; 
+    width: 300px;  
+    height: 100vh;  
+    padding-top: 50vh; 
+}
+
+.container-day{
+    background-color: white;
+}
+
+.container-night{
+    background-color: black;
+}
+
+.day{
+    color: white;
+    background-color: black;
+}
+
+.night{
+    color: black;
+    background-color: white;
+}
+
