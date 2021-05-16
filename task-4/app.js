@@ -47,29 +47,31 @@ function setStates(country){
 
 
 
-function selectedState(){
-    setCities(states.value, countries.value)
+function selectedState(stateValue){
+    setCities(stateValue, countries.value)
 }
 
 function setCities(state, country){
     if(country.value === 'india'){
-        if(state.value === 'Delhi'){
+        console.log(state)
+        if(state === 'Delhi'){
             createAndAppendEl(delCities, false)
-        } else if (state.value === 'Uttar Pradesh'){
+        } else if (state === 'Uttar Pradesh'){
             createAndAppendEl(upCities, false)
-        } else if (state.value === 'Haryana') {
+        } else if (state === 'Haryana') {
             createAndAppendEl(harCities, false)
-        } else{
+        } else if (state === 'Punjab'){
             createAndAppendEl(punCities, false)
         }
     } else{
-        if (state.value === '1') {
+        console.log(state)
+        if (state === '1') {
             createAndAppendEl(Cities1, false)
-        } else if (state.value === '2') {
+        } else if (state === '2') {
             createAndAppendEl(Cities2, false)
-        } else if (state.value === '3') {
+        } else if (state === '3') {
             createAndAppendEl(Cities3, false)
-        } else {
+        } else if(state === '4'){
             createAndAppendEl(Cities4, false)
         }
     }
@@ -83,6 +85,9 @@ function createAndAppendEl(arr, forState){
             optEl.textContent = arr[i]
             states.append(optEl)
         }
+        states.addEventListener('change', (e) => {
+            selectedState(e.target.value)
+        })
     } else{
         for (let i = 0; i < arr.length; i++) {
             const optEl = document.createElement('option')
