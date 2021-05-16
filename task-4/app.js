@@ -23,62 +23,47 @@ function selectedCountry(){
 }
 
 function setStates(country){
-    
     if(country === 'india'){
-
-        createAndAppendEl(indStates, true)
-        // for (let i = 0; i < indStates.length; i++) {
-        //     const optEl = document.createElement('option')
-        //     optEl.textContent = indStates[i]
-        //     states.append(optEl)
-        // }
+        createAndAppendEl('ind', indStates, true)
     } else{
-
-        createAndAppendEl(usaStates, true)
-        // for (let i = 0; i < usaStates.length; i++) {
-        //     const optEl = document.createElement('option')
-        //     optEl.textContent = usaStates[i]
-        //     states.append(optEl)
-        // }
+        createAndAppendEl('aus', usaStates, true)
     }
-
     states.disabled = false
 }
 
 
 
-function selectedState(stateValue){
-    setCities(stateValue, countries.value)
+function selectedState(countryValue, stateValue){
+    console.log(countryValue)
+    setCities(countryValue, stateValue)
 }
 
-function setCities(state, country){
-    if(country.value === 'india'){
-        console.log(state)
-        if(state === 'Delhi'){
-            createAndAppendEl(delCities, false)
-        } else if (state === 'Uttar Pradesh'){
-            createAndAppendEl(upCities, false)
-        } else if (state === 'Haryana') {
-            createAndAppendEl(harCities, false)
-        } else if (state === 'Punjab'){
-            createAndAppendEl(punCities, false)
+function setCities(countryValue, stateValue){
+    if(countryValue === 'ind'){
+        if(stateValue === 'Delhi'){
+            createAndAppendEl(countryValue, delCities, false)
+        } else if (stateValue === 'Uttar Pradesh'){
+            createAndAppendEl(countryValue, upCities, false)
+        } else if (stateValue === 'Haryana') {
+            createAndAppendEl(countryValue, harCities, false)
+        } else if (stateValue === 'Punjab'){
+            createAndAppendEl(countryValue, punCities, false)
         }
     } else{
-        console.log(state)
-        if (state === '1') {
-            createAndAppendEl(Cities1, false)
-        } else if (state === '2') {
-            createAndAppendEl(Cities2, false)
-        } else if (state === '3') {
-            createAndAppendEl(Cities3, false)
-        } else if(state === '4'){
-            createAndAppendEl(Cities4, false)
+        if (stateValue === '1') {
+            createAndAppendEl(countryValue, Cities1, false)
+        } else if (stateValue === '2') {
+            createAndAppendEl(countryValue, Cities2, false)
+        } else if (stateValue === '3') {
+            createAndAppendEl(countryValue, Cities3, false)
+        } else if(stateValue === '4'){
+            createAndAppendEl(countryValue, Cities4, false)
         }
     }
     cities.disabled = false
 }
 
-function createAndAppendEl(arr, forState){
+function createAndAppendEl(countryValue ,arr, forState){
     if(forState){
         for (let i = 0; i < arr.length; i++) {
             const optEl = document.createElement('option')
@@ -86,7 +71,7 @@ function createAndAppendEl(arr, forState){
             states.append(optEl)
         }
         states.addEventListener('change', (e) => {
-            selectedState(e.target.value)
+            selectedState(countryValue, e.target.value)
         })
     } else{
         for (let i = 0; i < arr.length; i++) {
@@ -97,22 +82,5 @@ function createAndAppendEl(arr, forState){
     }
 }
 
-// function setIndStates(){
-//     states.disabled = false
-//     for(let i=0; i<indStates.length; i++){
-//         const optEl = document.createElement('option')
-//         optEl.textContent = indStates[i]
-//         states.append(optEl)
-//     }
-// }
-
-// function setAmeStates() {
-//     states.disabled = false
-//     for (let i = 0; i < usaStates.length; i++) {
-//         const optEl = document.createElement('option')
-//         optEl.textContent = usaStates[i]
-//         states.append(optEl)
-//     }
-// }
 
 
