@@ -1,4 +1,4 @@
-const datum = {
+const data = {
     countries: [
         {
             name: 'India',

@@ -11,7 +11,7 @@ const clearCities = () => {
 };
 
 const loadCountries = () => {
-    for (const country of datum.countries) {
+    for (const country of data.countries) {
         countries.append(new Option(country.name, country.name));
     }
     clearStates();
@@ -32,7 +32,7 @@ countries.addEventListener('change', (e) => {
 });
 
 const loadStates = (selectedCountry) => {
-    for (const country of datum.countries) {
+    for (const country of Data.countries) {
         if (country.name == selectedCountry) {
             for (const state of country.states) {
                 states.append(new Option(state.name, state.name));
@@ -53,7 +53,7 @@ states.addEventListener('change', (e) => {
 
 const loadCities = (selectedState) => {
     const selectedCountry = countries.value;
-    for (const country of datum.countries) {
+    for (const country of data.countries) {
         if (country.name == selectedCountry) {
             for (const state of country.states) {
                 if (state.name == selectedState) {
