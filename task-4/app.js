@@ -51,6 +51,7 @@ states.addEventListener('change', (e) => {
     loadCities(e.target.value);
 });
 
+
 const loadCities = (selectedState) => {
     const selectedCountry = countries.value;
     for (const country of data.countries) {
