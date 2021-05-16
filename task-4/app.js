@@ -32,7 +32,7 @@ countries.addEventListener('change', (e) => {
 });
 
 const loadStates = (selectedCountry) => {
-    for (const country of Data.countries) {
+    for (const country of data.countries) {
         if (country.name == selectedCountry) {
             for (const state of country.states) {
                 states.append(new Option(state.name, state.name));
