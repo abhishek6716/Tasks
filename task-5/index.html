@@ -30,22 +30,105 @@
     <section id="b1">
         <div class="container-fluid">
             <div class="f2">
-                <div class="form-group">
-                    <select id="countries" class="form-control">
-                        <option>Select Country</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select id="states" class="form-control" disabled></select>
-                </div>
-                <div class="form-group">
-                    <select id="cities" class="form-control" disabled></select>
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNo">Mobile No:</label>
+                        <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile No">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNo">Mobile No:</label>
+                        <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile No">
+                    </div>
+                    <div class="form-group">
+                        <label for="overallExperience">Overall Experience:</label>
+                        <select class="form-control" id="overallExperience">
+                            <option>Select</option>
+                            <option>Fresher</option>
+                            <option>Less than 1 year</option>
+                            <option>1-3 years of Experience</option>
+                            <option>3-5 years of Experience</option>
+                            <option>5-7 years of Experience</option>
+                            <option>7-9 years of Experience</option>
+                            <option>9-11 years of Experience</option>
+                            <option>11-13 years of Experience</option>
+                            <option>13-15 years of Experience</option>
+                            <option>15-20 years of Experience</option>
+                            <option>20-25 years of Experience</option>
+                            <option>25-30 years of Experience</option>
+                            <option>30-35 years of Experience</option>
+                            <option>Above 35 years of Experience</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="relaventExperience">Relavent Experience:</label>
+                        <select class="form-control" id="relaventExperience">
+                            <option>Select</option>
+                            <option>Fresher</option>
+                            <option>Less than 1 year</option>
+                            <option>1-3 years of Experience</option>
+                            <option>3-5 years of Experience</option>
+                            <option>5-7 years of Experience</option>
+                            <option>7-9 years of Experience</option>
+                            <option>9-11 years of Experience</option>
+                            <option>11-13 years of Experience</option>
+                            <option>13-15 years of Experience</option>
+                            <option>15-20 years of Experience</option>
+                            <option>20-25 years of Experience</option>
+                            <option>25-30 years of Experience</option>
+                            <option>30-35 years of Experience</option>
+                            <option>Above 35 years of Experience</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select class="form-control" id="department">
+                            <option>Select</option>
+                            <option>Finance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <select class="form-control" id="role">
+                            <option>Select</option>
+                            <option>Compliance</option>
+                            <option>Finance</option>
+                            <option>Internal Audit / Control</option>
+                            <option>Legal / Secretarial / Compliance</option>
+                            <option>Treasury</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zone">Zone:</label>
+                        <select class="form-control" id="zone">
+                            <option>Select</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="branch">Branch:</label>
+                        <select class="form-control" id="branch">
+                            <option>Select</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachFile">Attach File:</label>
+                        <input type="file" class="form-control-file" id="attachFile">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
-    <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
 
