@@ -120,7 +120,7 @@ function setRoleEl(selectedDep) {
 // zones and branches
 
 let zoneData
-const getZonesAndBranch = () => {
+const getZonesAndBranch = async () => {
     const body = await getZones()
     zoneData = body.data
     setZonesEl()
