@@ -49,91 +49,92 @@ function getID(el) {
 let overallExpData, relevantExpData;                                 
 const getOverallExpData = async () => {
     const body = await getExperience('OVERALL')
-    overallExpData = body.data
-    setOverallEl()
+    // overallExpData = body.data
+    console.log(body)
+    // setOverallEl()
 }
-const getRelevantExpData = async () => {
-    const body = await getExperience('RELEVANT')
-    relevantExpData = body.data
-    setReleventEl()
-}
+// const getRelevantExpData = async () => {
+//     const body = await getExperience('RELEVANT')
+//     relevantExpData = body.data
+//     setReleventEl()
+// }
 
-function setOverallEl(){
-    for(let i=0; i<overallExpData.length; i++){
-        const OptEl = document.createElement('option')
-        OptEl.textContent = overallExpData[i].value
-        OptEl.setAttribute('id', 'overallExpData[i].id')
-        OptEl.setAttribute('onclick', 'getID(this)')
-        overallExperience.append(OptEl)
-    }
-}
+// function setOverallEl(){
+//     for(let i=0; i<overallExpData.length; i++){
+//         const OptEl = document.createElement('option')
+//         OptEl.textContent = overallExpData[i].value
+//         OptEl.setAttribute('id', 'overallExpData[i].id')
+//         OptEl.setAttribute('onclick', 'getID(this)')
+//         overallExperience.append(OptEl)
+//     }
+// }
 
-function setReleventEl() {
-    for (let i = 0; i < relevantExpData.length; i++) {
-        const OptEl = document.createElement('option')
-        OptEl.textContent = relevantExpData[i].value
-        OptEl.setAttribute('id', 'relevantExpData[i].id')
-        OptEl.setAttribute('onclick', 'getID(this)')
-        relaventExperience.append(OptEl)
-    }
-}
+// function setReleventEl() {
+//     for (let i = 0; i < relevantExpData.length; i++) {
+//         const OptEl = document.createElement('option')
+//         OptEl.textContent = relevantExpData[i].value
+//         OptEl.setAttribute('id', 'relevantExpData[i].id')
+//         OptEl.setAttribute('onclick', 'getID(this)')
+//         relaventExperience.append(OptEl)
+//     }
+// }
 
 
 
-// Departments and Roles
+// // Departments and Roles
 
-let departmentAndRoleData
-const getDepAndRoleData = async () => {
-    const body = await getDepAndRole()
-    departmentAndRoleData = body.data
-    setDepEl()
-}
+// let departmentAndRoleData
+// const getDepAndRoleData = async () => {
+//     const body = await getDepAndRole()
+//     departmentAndRoleData = body.data
+//     setDepEl()
+// }
 
-function setDepEl() {
-    role.disabled = true
-    for (let i = 0; i < departmentAndRoleData.length; i++) {
-        const OptEl = document.createElement('option')
-        OptEl.textContent = departmentAndRoleData[i].name
-        OptEl.setAttribute('id', 'departmentAndRoleData[i].id')
-        OptEl.setAttribute('onclick', 'getID(this)')
-        department.append(OptEl)
-    }
-    setRoleEl(target.id)
-}
+// function setDepEl() {
+//     role.disabled = true
+//     for (let i = 0; i < departmentAndRoleData.length; i++) {
+//         const OptEl = document.createElement('option')
+//         OptEl.textContent = departmentAndRoleData[i].name
+//         OptEl.setAttribute('id', 'departmentAndRoleData[i].id')
+//         OptEl.setAttribute('onclick', 'getID(this)')
+//         department.append(OptEl)
+//     }
+//     setRoleEl(target.id)
+// }
 
-function setRoleEl(selectedDep) {
-    for (let i = 0; i < departmentAndRoleData.length; i++) {
-        if (departmentAndRoleData[i].id == selectedDep) {
-            for (let j=0; j<departmentAndRoleData[i][j]; j++) {
-                const OptEl = document.createElement('option')
-                OptEl.textContent = departmentAndRoleData[i][j].name
-                OptEl.setAttribute('id', 'departmentAndRoleData[i][j].id')
-                OptEl.setAttribute('onclick', 'getID(this)')
-                role.append(OptEl)
-            }
-        }
-    }
-    role.disabled = false
-}
+// function setRoleEl(selectedDep) {
+//     for (let i = 0; i < departmentAndRoleData.length; i++) {
+//         if (departmentAndRoleData[i].id == selectedDep) {
+//             for (let j=0; j<departmentAndRoleData[i][j]; j++) {
+//                 const OptEl = document.createElement('option')
+//                 OptEl.textContent = departmentAndRoleData[i][j].name
+//                 OptEl.setAttribute('id', 'departmentAndRoleData[i][j].id')
+//                 OptEl.setAttribute('onclick', 'getID(this)')
+//                 role.append(OptEl)
+//             }
+//         }
+//     }
+//     role.disabled = false
+// }
 
 
 // zones and branches
 
-let zoneData
-const getZonesAndBranch = async () => {
-    const body = await getZones()
-    zoneData = body.data
-    setZonesEl()
-}
+// let zoneData
+// const getZonesAndBranch = async () => {
+//     const body = await getZones()
+//     zoneData = body.data
+//     setZonesEl()
+// }
 
-function setZonesEl(){
-    branch.disabled = true
-    for(let i=0; i<zoneData.length; i++){
-        const OptEl = document.createElement('option')
-        OptEl.textContent = zoneData[i]
-        zone.append(OptEl)
-    }
-}
+// function setZonesEl(){
+//     branch.disabled = true
+//     for(let i=0; i<zoneData.length; i++){
+//         const OptEl = document.createElement('option')
+//         OptEl.textContent = zoneData[i]
+//         zone.append(OptEl)
+//     }
+// }
 
 
 

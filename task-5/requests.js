@@ -1,9 +1,10 @@
-let url
+let url = 'https://api-hfc.techchefz.com/icicihfc-micro-service'
 
 const getExperience = async (experienceType) => {
     experienceType.toUpperCase()
     const response = await fetch(`${url}/rms/get/experience?experienceType=${experienceType}`)
 
+    console.log(response)
     if(response.status === 200){
         const data = await response.json()
         return data
@@ -12,24 +13,24 @@ const getExperience = async (experienceType) => {
     }
 }
 
-const getDepAndRole = async () => {
-    const response = await fetch(`${url}/rms/get/departments/and/roles`)
+// const getDepAndRole = async () => {
+//     const response = await fetch(`${url}/rms/get/departments/and/roles`)
 
-    if (response.status === 200) {
-        const data = await response.json()
-        return data
-    } else {
-        throw new Error('Unable to get DepAndRole')
-    }
-}
+//     if (response.status === 200) {
+//         const data = await response.json()
+//         return data
+//     } else {
+//         throw new Error('Unable to get DepAndRole')
+//     }
+// }
 
-const getZones = async () => {
-    const response = await fetch(`${url}/rms/get/job/location/zones`)
+// const getZones = async () => {
+//     const response = await fetch(`${url}/rms/get/job/location/zones`)
 
-    if (response.status === 200) {
-        const data = await response.json()
-        return data
-    } else {
-        throw new Error('Unable to get zones')
-    }
-}
+//     if (response.status === 200) {
+//         const data = await response.json()
+//         return data
+//     } else {
+//         throw new Error('Unable to get zones')
+//     }
+// }
