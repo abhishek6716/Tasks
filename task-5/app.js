@@ -59,7 +59,7 @@ const getExperience = (experienceType, callback) => {
     request.send()
 }
 
-getPuzzle('RELEVANT', (error, data) => {
+getExperience('RELEVANT', (error, data) => {
     if (error) {
         console.log(`Error: ${error}`)
     } else {
