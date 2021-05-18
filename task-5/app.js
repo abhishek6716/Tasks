@@ -44,15 +44,38 @@ function getID(el) {
 }
 
 
+const getExperience = (experienceType, callback) => {
+    const request = new XMLHttpRequest()
+
+    request.addEventListener('readystatechange', (e) => {
+        if (e.target.readyState === 4 && e.target.status === 200) {
+            const data = JSON.parse(e.target.responseText)
+            callback(undefined, data)
+        } else if (e.target.readyState === 4) {
+            callback('An error has taken place', undefined)
+        }
+    })
+    request.open('GET', `https://api-hfc.techchefz.com/icicihfc-micro-service/rms/get/experience?experienceType=${experienceType}`)
+    request.send()
+}
+
+getPuzzle('RELEVANT', (error, data) => {
+    if (error) {
+        console.log(`Error: ${error}`)
+    } else {
+        console.log(data)
+    }
+})
+
 // OverallExperience and RelevantExperience
 
-let overallExpData, relevantExpData;                                 
-const getOverallExpData = async () => {
-    const body = await getExperience('OVERALL')
+// let overallExpData, relevantExpData;                                 
+// const getOverallExpData = async () => {
+    // const body = await getExperience('OVERALL')
     // overallExpData = body.data
-    console.log(body)
+    // console.log(body)
     // setOverallEl()
-}
+// }
 // const getRelevantExpData = async () => {
 //     const body = await getExperience('RELEVANT')
 //     relevantExpData = body.data
