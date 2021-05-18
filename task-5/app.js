@@ -15,35 +15,6 @@ const button = document.getElementById('button')                                
 let form = new Object()
 
 
-const clearOverallExperience = () => {
-    overallExperience.innerHTML = '<option>Select</option>';
-};
-
-const clearRelaventExperience = () => {
-    relaventExperience.innerHTML = '<option>Select</option>';
-};
-
-const clearDepartment = () => {
-    department.innerHTML = '<option>Select</option>';
-};
-
-const clearRole = () => {
-    role.innerHTML = '<option>Select</option>';
-};
-
-const clearZone = () => {
-    zone.innerHTML = '<option>Select</option>';
-};
-
-const clearBranch = () => {
-    branch.innerHTML = '<option>Select</option>';
-};
-
-function getID(el) {
-    return el.id
-}
-
-
 const getExperience = (experienceType, callback) => {
     const request = new XMLHttpRequest()
 
