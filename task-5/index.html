@@ -33,87 +33,49 @@
                 <form>
                     <div class="form-group">
                         <label for="fullName">Full Name:</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter Name">
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter Name" oninput="">
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                        <input type="text" class="form-control" id="email" placeholder="Enter Email" oninput="">
                     </div>
                     <div class="form-group">
                         <label for="mobileNo">Mobile No:</label>
-                        <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile No">
-                    </div>
-                    <div class="form-group">
-                        <label for="mobileNo">Mobile No:</label>
-                        <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile No">
+                        <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile No" oninput="">
                     </div>
                     <div class="form-group">
                         <label for="overallExperience">Overall Experience:</label>
-                        <select class="form-control" id="overallExperience">
+                        <select class="form-control" id="overallExperience" onclick="getOverallExpData()">
                             <option>Select</option>
-                            <option>Fresher</option>
-                            <option>Less than 1 year</option>
-                            <option>1-3 years of Experience</option>
-                            <option>3-5 years of Experience</option>
-                            <option>5-7 years of Experience</option>
-                            <option>7-9 years of Experience</option>
-                            <option>9-11 years of Experience</option>
-                            <option>11-13 years of Experience</option>
-                            <option>13-15 years of Experience</option>
-                            <option>15-20 years of Experience</option>
-                            <option>20-25 years of Experience</option>
-                            <option>25-30 years of Experience</option>
-                            <option>30-35 years of Experience</option>
-                            <option>Above 35 years of Experience</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="relaventExperience">Relavent Experience:</label>
-                        <select class="form-control" id="relaventExperience">
+                        <select class="form-control" id="relaventExperience" onclick="getRelevantExpData()">
                             <option>Select</option>
-                            <option>Fresher</option>
-                            <option>Less than 1 year</option>
-                            <option>1-3 years of Experience</option>
-                            <option>3-5 years of Experience</option>
-                            <option>5-7 years of Experience</option>
-                            <option>7-9 years of Experience</option>
-                            <option>9-11 years of Experience</option>
-                            <option>11-13 years of Experience</option>
-                            <option>13-15 years of Experience</option>
-                            <option>15-20 years of Experience</option>
-                            <option>20-25 years of Experience</option>
-                            <option>25-30 years of Experience</option>
-                            <option>30-35 years of Experience</option>
-                            <option>Above 35 years of Experience</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="department">Department:</label>
-                        <select class="form-control" id="department">
+                        <select class="form-control" id="department" onclick="getDepAndRoleData()">
                             <option>Select</option>
-                            <option>Finance</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="role">Role:</label>
-                        <select class="form-control" id="role">
+                        <select class="form-control" id="role" disabled>
                             <option>Select</option>
-                            <option>Compliance</option>
-                            <option>Finance</option>
-                            <option>Internal Audit / Control</option>
-                            <option>Legal / Secretarial / Compliance</option>
-                            <option>Treasury</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="zone">Zone:</label>
-                        <select class="form-control" id="zone">
+                        <select class="form-control" id="zone" onclick="getZonesAndBranch()">
                             <option>Select</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="branch">Branch:</label>
-                        <select class="form-control" id="branch">
+                        <select class="form-control" id="branch" disabled>
                             <option>Select</option>
                         </select>
                     </div>
@@ -122,13 +84,14 @@
                         <input type="file" class="form-control-file" id="attachFile">
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" id="button">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
+    <script src="requests.js"></script>
     <script src="app.js"></script>
 </body>
 
