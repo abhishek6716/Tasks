@@ -1,8 +1,8 @@
 console.log('app is running!')
 
-const name = document.getElementById('fullName')                                  // input box
-const email = document.getElementById('email')                                    // input box
-const mobileNo = document.getElementById('mobileNo')                              // input box
+const nodeFullName = document.getElementById('fullName')                          // input box
+const nodeEmail = document.getElementById('email')                                // input box
+const nodeMobileNo = document.getElementById('mobileNo')                          // input box
 const overallExperience = document.getElementById('overallExperience')            // toggler
 const relaventExperience = document.getElementById('relaventExperience')          // toggler
 const department = document.getElementById('department')                          // toggler
@@ -12,8 +12,45 @@ const branch = document.getElementById('branch')                                
 const attachFile = document.getElementById('attachFile')                          // doc
 const button = document.getElementById('button')                                  // button
 
-let form = new Object()
-let fullName, emailID, mobileNo, experienceOverallID, experienceRelavantID, roleID, resumeID, resumeName, resumeNonce;
+let fullName, emailID, mobileNo, experienceOverallID, experienceRelavantID, roleID, jobLocationID, resumeID, resumeName, resumeNonce;
+
+/////////////////////// fullname email mobileno ////////////////////////
+nodeFullName.addEventListener('change', () => {
+    let regex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
+    let str = nodeFullName.value
+    if (regex.test(str)) {
+        fullName = str
+        // validFirstName = true
+    } else {
+        alert('enter valid full name!')
+        // validFirstName = false
+    }
+})
+
+nodeEmail.addEventListener('change', () => {
+    let regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let str = nodeEmail.value
+    if (regex.test(str)) {
+        emailID = str
+        // validEmail = true
+    } else {
+        alert('enter valid email!')
+        // validEmail = false
+    }
+})
+
+nodeMobileNo.addEventListener('change', () => {
+    let regex = /^([0-9]{10}$)/
+    let str = nodeMobileNo.value
+    if (regex.test(str)) {
+        mobileNo = str
+        // validMobileNo = true
+    } else {
+        // validMobileNo = false
+        alert('enter valid mobile number')
+    }
+})
+
 
 
 const clearRoles = () => {
@@ -114,7 +151,6 @@ function setRoleEl(selectedDep) {
     role.disabled = false
     role.addEventListener('change', (e) => {
         roleID = e.target.value
-        console.log(roleID)
     })
 }
 
@@ -153,6 +189,9 @@ function setBranchesEl(){
         branch.append(OptEl)
     }
     branch.disabled = false
+    branch.addEventListener('change', (e) => {
+        jobLocationID = e.target.value
+    })
 }
 
 zone.addEventListener('change', (e) => {
@@ -182,19 +221,54 @@ const upload = (e) => {
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
-        let data = response.data
-        resumeID = data.id
-        resumeName = data.name
-        resumeNonce = data.nonce
+        const data = JSON.parse(response).data
+               resumeID = data.id
+            resumeName = data.name
+            resumeNonce = data.nonce
+
+       
     });
 }
 
 
-form.experienceOverallId = experienceOverallID
-form.experienceRelaventId = experienceRelavantID
-form.roleId = roleID
-form.resumeDocRefId = resumeID
-form.resumeDocRefFileName = resumeName
-form.resumeDocRefNonce = resumeNonce
+function formSubmit (){
+    const obj = {
+        fullName: fullName,
+        emailId: emailID,
+        mobileNumber: mobileNo,
+        experienceOverallId: experienceOverallID,
+        experienceRelaventId: experienceRelavantID,
+        roleId: roleID,
+        jobLocationId: jobLocationID,
+        resumeDocRefId: resumeID,
+        resumeDocRefFileName: resumeName,
+        resumeDocRefNonce: resumeNonce,
+        adLoginNonce: ""
+    }
+    const settings = {
+        "url": "https://api-hfc.techchefz.com/icicihfc-micro-service/rms/candidate/submit/form",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json",
+        },
+        "data": JSON.stringify(obj),
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+    console.log(obj)
+}
+
+
+
+button.addEventListener('click', () => {
+    formSubmit()
+})
+
+
+
+// the coding train
+
 
