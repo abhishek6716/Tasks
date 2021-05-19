@@ -30,7 +30,7 @@
     <section id="b1">
         <div class="container-fluid">
             <div class="f2">
-                <form>
+                <div>
                     <div class="form-group">
                         <label for="fullName">Full Name:</label>
                         <input type="text" class="form-control" id="fullName" placeholder="Enter Name" oninput="">
@@ -45,19 +45,19 @@
                     </div>
                     <div class="form-group">
                         <label for="overallExperience">Overall Experience:</label>
-                        <select class="form-control" id="overallExperience" >
+                        <select class="form-control" id="overallExperience">
                             <option>Select</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="relaventExperience">Relavent Experience:</label>
-                        <select class="form-control" id="relaventExperience" onclick="getRelevantExpData()">
+                        <select class="form-control" id="relaventExperience">
                             <option>Select</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="department">Department:</label>
-                        <select class="form-control" id="department" onclick="getDepAndRoleData()">
+                        <select class="form-control" id="department">
                             <option>Select</option>
                         </select>
                     </div>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label for="zone">Zone:</label>
-                        <select class="form-control" id="zone" onclick="getZonesAndBranch()">
+                        <select class="form-control" id="zone">
                             <option>Select</option>
                         </select>
                     </div>
@@ -82,15 +82,17 @@
                     <div class="form-group">
                         <label for="attachFile">Attach File:</label>
                         <input type="file" class="form-control-file" id="attachFile">
+                        <button onclick="upload()">upload</button>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" id="button">Submit</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
+    <script src="requests.js"></script>
     <script src="app.js"></script>
 </body>
 
