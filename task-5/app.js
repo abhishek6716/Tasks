@@ -23,44 +23,65 @@ let fullName,
     resumeName,
     resumeNonce;
 
+
+let IsFullNameValid = false, 
+    IsEmailValid = false, 
+    IsMobileNoValid = false, 
+    IsOverallExpSelected = false, 
+    IsRelaventExpSelected = false,
+    IsDepSelected = false, 
+    IsRoleSelected = false,
+    IsZoneSelected = false,
+    IsBranchSelected = false;
 /////////////////////// fullname email mobileno ////////////////////////
-nodeFullName.addEventListener('change', () => {
+nodeFullName.addEventListener('blur', () => {
     const regex = /^[a-z]([-']?[a-z]+)( [a-z]([-']?[a-z]+))+$/;
     const str = nodeFullName.value;
     if (regex.test(str)) {
         fullName = str;
+        IsFullNameValid = true
+        nodeFullName.classList.remove('is-invalid')
     } else {
-        alert('enter valid full name!');
+        nodeFullName.classList.add('is-invalid')
+        IsFullNameValid = false
     }
 });
 
-nodeEmail.addEventListener('change', () => {
+nodeEmail.addEventListener('blur', () => {
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const str = nodeEmail.value;
     if (regex.test(str)) {
         emailID = str;
+        IsEmailValid = true
+        nodeEmail.classList.remove('is-invalid')
     } else {
-        alert('enter valid email!');
+        nodeEmail.classList.add('is-invalid')
+        IsEmailValid = false
     }
 });
 
-nodeMobileNo.addEventListener('change', () => {
+nodeMobileNo.addEventListener('blur', () => {
     const regex = /^([0-9]{10}$)/;
     const str = nodeMobileNo.value;
     if (regex.test(str)) {
         mobileNo = str;
+        IsMobileNoValid = true
+        nodeMobileNo.classList.remove('is-invalid')
     } else {
-        alert('enter valid mobile number');
+        IsMobileNoValid = false
+        nodeMobileNo.classList.add('is-invalid')
     }
 });
 
 const clearRoles = () => {
     role.innerHTML = '<option>Select</option>';
+    IsRoleSelected = false;
 };
 
 const clearBranches = () => {
     branch.innerHTML = '<option>Select</option>';
+    IsBranchSelected = false;
 };
 
 // OverallExperience and RelevantExperience
@@ -101,10 +122,12 @@ function setReleventEl() {
 
 overallExperience.addEventListener('change', (e) => {
     experienceOverallID = e.target.value;
+    IsOverallExpSelected = true;
 });
 
 relaventExperience.addEventListener('change', (e) => {
     experienceRelavantID = e.target.value;
+    IsRelaventExpSelected = true;
 });
 
 ////////////////// Departments and Roles ////////////////////////
@@ -131,6 +154,7 @@ function setDepEl() {
 department.addEventListener('change', (e) => {
     clearRoles();
     const id = e.target.value;
+    IsDepSelected = true;
     setRoleEl(id);
 });
 
@@ -150,6 +174,7 @@ function setRoleEl(selectedDep) {
     role.disabled = false;
     role.addEventListener('change', (e) => {
         roleID = e.target.value;
+        IsRoleSelected = true
     });
 }
 
@@ -190,12 +215,14 @@ function setBranchesEl() {
     branch.disabled = false;
     branch.addEventListener('change', (e) => {
         jobLocationID = e.target.value;
+        IsBranchSelected = true;
     });
 }
 
 zone.addEventListener('change', (e) => {
     clearBranches();
     let selectedZone = e.target.value;
+    IsZoneSelected = true
     loadBranchesData(selectedZone);
 });
 
@@ -253,11 +280,36 @@ function formSubmit() {
     console.log(obj);
 }
 
-button.addEventListener('click', () => {
-    formSubmit();
+button.addEventListener('click', (e) => {
+    e.preventDefault()
+    if(!IsFullNameValid){
+        $("#fullName").focus();
+        alert('Enter valid Full Name!')
+    } else if(!IsEmailValid){
+        $("#email").focus();
+        alert('Enter valid Email!')
+    } else if(!IsMobileNoValid){
+        $("#mobileNo").focus();
+        alert('Enter valid Mobile Number!')
+    } else if(!IsOverallExpSelected){
+        alert('Select Overall Experience!')
+    } else if(!IsRelaventExpSelected){
+        alert('Select Relavent Experience!')
+    } else if(!IsDepSelected){
+        alert('Select Department!')
+    } else if(!IsRoleSelected){
+        alert('Select Role!')
+    } else if(!IsZoneSelected){
+        alert('Select Zone')
+    } else if(!IsBranchSelected){
+        alert('select Branch!')
+    } else{
+        alert('Data submitted successfully!')
+        formSubmit();
+    }
 });
 
 
-// // the coding train
+// the coding train
 
 
